@@ -26,9 +26,9 @@ public class HotelCatalogService {
     @RequestMapping("/{userId}")
     public List<CatalogItem> getCatalog(@PathVariable("userId") String userId)
     {
-        UserRating userRating = restTemplate.getForObject("http://localhost:8083/ratingsdata/user/"+userId, UserRating.class);
+        UserRating userRating = restTemplate.getForObject("http://ratings-data-service/ratingsdata/user/"+userId, UserRating.class);
         return userRating.getUserRating().stream().map(rating -> {
-            Hotel hotel = restTemplate.getForObject("http://localhost:8082/hotels/"+rating.getHotelId(), Hotel.class );
+            Hotel hotel = restTemplate.getForObject("http://hotel-info-service/hotels/"+rating.getHotelId(), Hotel.class );
             return new CatalogItem(hotel.getName(), "Awesome", rating.getRating());
         }).toList();
     }
