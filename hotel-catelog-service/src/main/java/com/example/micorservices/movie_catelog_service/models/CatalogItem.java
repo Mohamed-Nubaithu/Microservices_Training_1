@@ -1,4 +1,4 @@
-package com.example.micorservices.hotel_catelog_service.models;
+package com.example.micorservices.movie_catelog_service.models;
 
 public class CatalogItem {
     private String name;

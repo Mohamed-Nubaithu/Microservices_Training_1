@@ -1,4 +1,4 @@
-package com.example.micorservices.hotel_catelog_service;
+package com.example.micorservices.movie_catelog_service;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,7 +8,7 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.reactive.function.client.WebClient;
 
 @SpringBootApplication
-public class HotelCatalogServiceApplication {
+public class MovieCatalogServiceApplication {
 
 	@Bean
 	@LoadBalanced
@@ -24,7 +24,7 @@ public class HotelCatalogServiceApplication {
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(HotelCatalogServiceApplication.class, args);
+		SpringApplication.run(MovieCatalogServiceApplication.class, args);
 	}
 
 }

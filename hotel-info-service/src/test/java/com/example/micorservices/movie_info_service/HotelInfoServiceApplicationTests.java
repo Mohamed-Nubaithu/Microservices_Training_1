@@ -1,4 +1,4 @@
-package com.example.micorservices.hotel_info_service;
+package com.example.micorservices.movie_info_service;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

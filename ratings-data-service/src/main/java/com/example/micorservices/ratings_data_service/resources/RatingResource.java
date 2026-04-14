@@ -13,10 +13,10 @@ import java.util.List;
 @RequestMapping("/ratingsdata")
 public class RatingResource {
 
-    @RequestMapping("/{hotelId}")
-    public Rating getRating(@PathVariable("hotelId") String hotelId)
+    @RequestMapping("/{movieId}")
+    public Rating getRating(@PathVariable("movieId") String movieId)
     {
-        return new Rating(hotelId, 5);
+        return new Rating(movieId, 5);
     }
 
     @RequestMapping("/user/{userId}")

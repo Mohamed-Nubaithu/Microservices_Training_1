@@ -1,9 +1,8 @@
-package com.example.micorservices.hotel_catelog_service.resources;
+package com.example.micorservices.movie_catelog_service.resources;
 
-import com.example.micorservices.hotel_catelog_service.models.CatalogItem;
-import com.example.micorservices.hotel_catelog_service.models.Hotel;
-import com.example.micorservices.hotel_catelog_service.models.Rating;
-import com.example.micorservices.hotel_catelog_service.models.UserRating;
+import com.example.micorservices.movie_catelog_service.models.CatalogItem;
+import com.example.micorservices.movie_catelog_service.models.Movie;
+import com.example.micorservices.movie_catelog_service.models.UserRating;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,12 +10,11 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.reactive.function.client.WebClient;
 
-import java.util.Arrays;
 import java.util.List;
 
 @RestController
 @RequestMapping("/catalog")
-public class HotelCatalogService {
+public class MovieCatalogService {
 
     @Autowired
     private RestTemplate restTemplate;
@@ -28,16 +26,16 @@ public class HotelCatalogService {
     {
         UserRating userRating = restTemplate.getForObject("http://ratings-data-service/ratingsdata/user/"+userId, UserRating.class);
         return userRating.getUserRating().stream().map(rating -> {
-            Hotel hotel = restTemplate.getForObject("http://hotel-info-service/hotels/"+rating.getHotelId(), Hotel.class );
-            return new CatalogItem(hotel.getName(), "Awesome", rating.getRating());
+            Movie movie = restTemplate.getForObject("http://movie-info-service/movies/"+rating.getMovieId(), Movie.class );
+            return new CatalogItem(movie.getName(), "Awesome", rating.getRating());
         }).toList();
     }
 }
 
 // using web client to make external api call
-//            Hotel hotel = webClientBuilder.build().
+//            Movie Movie = webClientBuilder.build().
 //                          get().
-//                          uri("http://localhost:8082/hotels/"+rating.getHotelId()).
+//                          uri("http://localhost:8082/Movies/"+rating.getMovieId()).
 //                          retrieve().
-//                          bodyToMono(Hotel.class).
+//                          bodyToMono(Movie.class).
 //                          block();

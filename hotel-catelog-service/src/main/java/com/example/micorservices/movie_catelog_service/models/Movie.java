@@ -1,10 +1,14 @@
-package com.example.micorservices.hotel_info_service.models;
+package com.example.micorservices.movie_catelog_service.models;
 
-public class Hotel {
+public class Movie {
     private String id;
     private String name;
 
-    public Hotel(String id, String name) {
+    public Movie(){
+
+    }
+
+    public Movie(String id, String name) {
         this.id = id;
         this.name = name;
     }
@@ -21,7 +25,7 @@ public class Hotel {
         return name;
     }
 
-    public void setNam(String nam) {
+    public void setName(String name) {
         this.name = name;
     }
 }

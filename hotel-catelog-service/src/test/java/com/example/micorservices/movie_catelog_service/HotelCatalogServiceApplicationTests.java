@@ -1,4 +1,4 @@
-package com.example.micorservices.hotel_catelog_service;
+package com.example.micorservices.movie_catelog_service;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
